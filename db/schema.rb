@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806024434) do
+ActiveRecord::Schema.define(version: 20150806181019) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.text     "bio"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sweats", force: :cascade do |t|
+    t.integer  "amount"
+    t.decimal  "price"
+    t.boolean  "bulk_discount"
+    t.integer  "bulk_minimum"
+    t.decimal  "bulk_price"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "profile_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150806024434) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,13 @@
+Hi <%= current_user.avatar_name %>! Edit your Profile!
+
+
+<%= form_for(@profile) do |f| %>
+	<div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio, autofocus: true %>
+  </div>
+
+<%= button_to "Update", sweat_path(current_user.sweat), method: :put %>
+
+<% end %>
+  

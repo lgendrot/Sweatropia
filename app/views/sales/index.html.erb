@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-xs-6 col-xs-offset-5" id="Sweat-icon-large">
+</div> 
+
+<div class="row">
+<!-- 	<%= link_to "Buy", buy_path, html_options = {class: "col-xs-3 col-xs-offset-3 btn btn-default", id: "Buy-icon"} %> -->
+	<%= 
+		link_to buy_path, class: "col-xs-2 col-xs-offset-4 btn btn-lg btn-default", id: "Buy-icon" do
+	%>
+  	<h1>Buy</h1>
+	<%end%>
+
+	<%= 
+		link_to sell_path, class: "col-xs-2 btn btn-lg btn-default", id: "Sell-icon" do
+	%>
+  	<h1>Sell</h1>
+	<%end%>
+</div>

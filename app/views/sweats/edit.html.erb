@@ -1,0 +1,11 @@
+<%= form_for(@sweat) do |f| %>
+
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.number_field :amount, autofocus: true %>
+  </div>
+
+<%= button_to "Update", sweat_path(current_user.sweat), data: { confirm: "Are you sure?" }, method: :put %>
+		
+<% end %>
+  

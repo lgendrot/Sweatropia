@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  price: 9.99
+  bulk_discount: false
+  bulk_price: 9.99
+
+two:
+  amount: 1
+  price: 9.99
+  bulk_discount: false
+  bulk_price: 9.99

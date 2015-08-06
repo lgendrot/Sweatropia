@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'welcome#index'
+
+  resources :sweats, only: [:edit, :update, :show]
+  resources :profile
+  
+  authenticated do
+    root :to => 'sales#index', as: :authenticated
+  end
+
+  root :to => 'welcome#index'
+
+  get 'buy' => 'sales#buy'
+  get 'sell' => 'sweats#show'
+
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

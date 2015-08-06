@@ -1,0 +1,6 @@
+<h1><%= @profile.user.avatar_name %></h1>
+<p><%= @profile.bio %></p>
+
+<% if current_user && current_user.id == @profile.user.id %>
+	<%= link_to "Edit", edit_profile_path %>
+<% end %>

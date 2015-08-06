@@ -1,0 +1,10 @@
+<p>Buy Sweat here!</p>
+
+<ul class="all-sweat">
+  <% @sweat.each do |sweat| %>
+    <li>
+    	<%= sweat.amount %>
+      <%= sweat.profile.user.avatar_name %>
+    </li>
+  <% end %>
+</ul>
