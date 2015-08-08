@@ -1,11 +1,23 @@
 <%= form_for(@sweat) do |f| %>
+	<div class="container">
+		<div class="row">
+			<div class= "col-md-8 col-md-offset-2">
 
-  <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.number_field :amount, autofocus: true %>
-  </div>
-
-<%= button_to "Update", sweat_path(current_user.sweat), data: { confirm: "Are you sure?" }, method: :put %>
-		
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="form-inputs">
+						  <div class="form-group">
+						    <%= f.label :amount %><br />
+						    <%= f.number_field :amount, autofocus: true %>
+						  </div>
+						</div>
+					</div>
+					<div class="panel-footer">
+						<%= button_to "Update", sweat_path(current_user.sweat), data: { confirm: "Are you sure?" }, method: :put, class: "btn btn-primary" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 <% end %>
   

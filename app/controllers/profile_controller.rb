@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
 
 	def show
 		@profile = Profile.find(params[:id])
+		@offers = @profile.sweat.offers.all
 
 		respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +27,7 @@ class ProfileController < ApplicationController
 
 	private
 		def profile_params
-			params.require(:profile).permit(:bio)
+			params.require(:profile).permit(:bio, :avatar)
 		end
 
 

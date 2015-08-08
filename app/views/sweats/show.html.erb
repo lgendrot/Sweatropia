@@ -1,4 +1,5 @@
 <h1><%= current_user.avatar_name %></h1>
 <p>Sweat available: <%= @sweat.amount %></p>
+<p>Price: <%= @sweat.price %> </p>
 
 <%= link_to "Update", edit_sweat_path(current_user.sweat), html_options= {class: "btn btn-primary"} %>

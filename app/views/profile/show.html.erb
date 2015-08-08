@@ -1,6 +1,19 @@
+<%= image_tag @profile.avatar.url(:medium) %>
 <h1><%= @profile.user.avatar_name %></h1>
 <p><%= @profile.bio %></p>
+<p>Sweat for sale: <%= @profile.sweat.amount %></p>
+<p>Last seen: <%= time_ago_in_words(@profile.last_seen_at) %> ago</p>
+
 
 <% if current_user && current_user.id == @profile.user.id %>
-	<%= link_to "Edit", edit_profile_path %>
+	<%= link_to "Edit", edit_profile_path %><br />
+
+	Your offers:
+  <% @offers.each do |offer| %>
+    <li>
+    	Buyer: <%= offer.buyer.user.avatar_name %>
+      | Amount wanted: <%= offer.amount %>
+    </li>
+  <% end %>
+
 <% end %>
