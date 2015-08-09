@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
 
 	def show
 		@profile = Profile.find(params[:id])
-		@offers = @profile.sweat.offers.all
+		@offers = @profile.offers.all
 
 		respond_to do |format|
       format.html # show.html.erb
@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
 		@profile = current_user.profile
 		if @profile.update_attributes(profile_params)
 			flash[:info] = "Profile Updated"
-			redirect_to edit_profile_path
+			redirect_to @profile
 		end
 	end
 

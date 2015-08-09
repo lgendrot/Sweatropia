@@ -2,4 +2,12 @@
 <p>Sweat available: <%= @sweat.amount %></p>
 <p>Price: <%= @sweat.price %> </p>
 
+Your offers:
+  <% @offers.each do |offer| %>
+    <li>
+    	Buyer: <%= offer.buyer.user.avatar_name %>
+      | Amount wanted: <%= offer.amount %>
+    </li>
+ 	<% end %>
+
 <%= link_to "Update", edit_sweat_path(current_user.sweat), html_options= {class: "btn btn-primary"} %>

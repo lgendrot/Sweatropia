@@ -3,6 +3,7 @@ class SweatsController < ApplicationController
 
 	def show
 		@sweat = current_user.sweat
+		@offers = @sweat.offers
 	end
 
 	def edit

@@ -8,10 +8,10 @@
 <% if current_user && current_user.id == @profile.user.id %>
 	<%= link_to "Edit", edit_profile_path %><br />
 
-	Your offers:
+	Offers you've made:
   <% @offers.each do |offer| %>
     <li>
-    	Buyer: <%= offer.buyer.user.avatar_name %>
+    	Seller: <%= offer.seller.profile.user.avatar_name %>
       | Amount wanted: <%= offer.amount %>
     </li>
   <% end %>
