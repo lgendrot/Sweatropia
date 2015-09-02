@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808053343) do
+ActiveRecord::Schema.define(version: 20150901211311) do
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "recipient_id"
+    t.integer  "sender_id"
+    t.integer  "offer_id"
+    t.boolean  "read",              default: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "notification_type"
+  end
 
   create_table "offers", force: :cascade do |t|
     t.integer  "profile_id"
@@ -58,6 +68,9 @@ ActiveRecord::Schema.define(version: 20150808053343) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "nick_name"
+    t.string   "last_name"
     t.string   "avatar_name"
   end
 

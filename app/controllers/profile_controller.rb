@@ -3,7 +3,20 @@ class ProfileController < ApplicationController
 
 	def show
 		@profile = Profile.find(params[:id])
-		@offers = @profile.offers.all
+
+		if @profile == current_user.profile
+			@pending_offers = @profile.offers.where(state: "pending")
+			@accepted_offers = @profile.offers.where(state:"accepted")
+			@completed_offers = @profile.offers.where(state:"complete")
+			@canceled_offers = @profile.offers.where(state:"canceled")
+
+			@pending_sales = @profile.sweat.offers.where(state:"pending")
+			@accepted_sales = @profile.sweat.offers.where(state:"accepted")
+			@completed_sales = @profile.sweat.offers.where(state:"complete")
+			@canceled_sales = @profile.sweat.offers.where(state:"canceled")
+		end
+
+		
 
 		respond_to do |format|
       format.html # show.html.erb
@@ -29,7 +42,5 @@ class ProfileController < ApplicationController
 		def profile_params
 			params.require(:profile).permit(:bio, :avatar)
 		end
-
-
 
 end

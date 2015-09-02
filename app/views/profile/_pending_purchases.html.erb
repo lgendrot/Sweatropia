@@ -1,0 +1,13 @@
+	<div class="panel panel-info pending-offer-panel">
+		<div class="panel-heading text-center"><h4>Your pending purchases</h4></div>
+		<div class="panel-body">
+			<ul style="list-style-type: none">
+			  <% @pending_offers.each do |offer| %>
+				    <li>
+				    	Seller: <%= offer.seller.profile.user.avatar_name %>
+				      | Amount wanted: <%= offer.amount %>
+				    </li>
+			  <% end %>
+			</ul>
+		</div>
+	</div>

@@ -9,7 +9,7 @@ class Offer < ActiveRecord::Base
 
 	after_create :set_initial_state
 
-	STATES = %w{ init pending accepted complete }
+	STATES = %w{ pending accepted complete canceled }
 
 	STATES.each do |state|
 		define_method("#{state}?") do
@@ -23,6 +23,6 @@ class Offer < ActiveRecord::Base
 
 	private
 		def set_initial_state
-			self.update_attribute(:state, "init")
+			self.update_attribute(:state, "pending")
 		end
 end

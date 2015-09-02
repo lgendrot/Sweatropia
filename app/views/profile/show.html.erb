@@ -1,19 +1,18 @@
-<%= image_tag @profile.avatar.url(:medium) %>
-<h1><%= @profile.user.avatar_name %></h1>
-<p><%= @profile.bio %></p>
-<p>Sweat for sale: <%= @profile.sweat.amount %></p>
-<p>Last seen: <%= time_ago_in_words(@profile.last_seen_at) %> ago</p>
+<div class="container">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="row text-center">
+			<%= image_tag @profile.avatar.url(:medium) %>
+			<h1><%= @profile.user.avatar_name %></h1>
+			<p><%= @profile.bio %></p>
+			<p>Sweat for sale: <%= @profile.sweat.amount %></p>
+			<p>Last seen: <%= time_ago_in_words(@profile.last_seen_at) %> ago</p>
+			<%= link_to "Edit", edit_profile_path %><br />
+		</div>
 
-
-<% if current_user && current_user.id == @profile.user.id %>
-	<%= link_to "Edit", edit_profile_path %><br />
-
-	Offers you've made:
-  <% @offers.each do |offer| %>
-    <li>
-    	Seller: <%= offer.seller.profile.user.avatar_name %>
-      | Amount wanted: <%= offer.amount %>
-    </li>
-  <% end %>
-
-<% end %>
+		<div class="row">
+			<% if current_user && current_user.id == @profile.user.id %>
+				<%= render "dashboard" %>
+			<% end %>
+		</div>
+	</div>
+</div>

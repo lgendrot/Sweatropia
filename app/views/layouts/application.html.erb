@@ -23,17 +23,15 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Buy", buy_path %></li>
-          <li><%= link_to "Sell", sell_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to 'Sign out', '/users/sign_out', :method => :delete %></li>
-            <li><%= link_to "Profile", current_user.profile %></li>
+            <li><%= link_to "Dashboard", current_user.profile %></li>
+            <li><%= link_to "Buy", buy_path %></li>
+            <li><%= link_to "Sell", sell_path %></li>
+          <li><%= link_to 'Sign out', '/users/sign_out', :method => :delete %></li>
           <% else %>
             <li><%= link_to 'Sign in', new_user_session_path %></li>
             <li><%= link_to 'Register', new_user_registration_path %></li>
           <% end %>
-          
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
